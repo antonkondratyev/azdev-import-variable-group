@@ -1,0 +1,24 @@
+{
+  "name": "import-variable-group",
+  "version": "1.0.0",
+  "description": "Import Variable Group task for Visual Studio Team Services",
+  "author": "Anton Kondratyev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonkondratyev/azdev-import-variable-group"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.32",
+    "@types/q": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-install": "^1.1.0",
+    "gulp-typescript": "^3.1.7",
+    "npm-check-updates": "^2.11.2",
+    "typescript": "^2.4.1"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "f4189e75-bc36-4b44-9865-f10dcadc81bd",
+  "name": "ImportVariableGroup",
+  "friendlyName": "Import Variable Group",
+  "description": "Import Variable Group",
+  "author": "Anton Kondratyev",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "helpMarkDown": "",
+  "icons": {
+    "default": "icon.png"
+  },
+  "demands": [],
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "minimumAgentVersion": "",
+  "instanceNameFormat": "Import Variable Group",
+  "groups": [
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "variableGroup",
+      "type": "pickList",
+      "label": "Variable Group",
+      "required": true,
+      "defaultValue": "",
+      "properties": {
+        "EditableOptions": "True",
+        "DisableManageLink": "True"
+      },
+      "helpMarkDown": ""
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "label": "Prefix",
+      "required": false,
+      "defaultValue": "$(VariableGroupName)_",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "traceImportedVariables",
+      "type": "boolean",
+      "label": "Trace Imported Variables",
+      "required": false,
+      "defaultValue": false,
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "auth",
+      "type": "pickList",
+      "label": "Authentication",
+      "required": true,
+      "defaultValue": "vssToken",
+      "options": {
+        "vssToken": "VSS",
+        "oAuth": "OAuth",
+        "serviceEndpoint": "Endpoint",
+        "basic": "Basic"
+      },
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "connectedServiceName",
+      "type": "connectedService:Generic",
+      "label": "Service Endpoint",
+      "required": true,
+      "defaultValue": "",
+      "visibleRule": "auth = serviceEndpoint",
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "label": "Username",
+      "required": true,
+      "defaultValue": "",
+      "visibleRule": "auth = basic",
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "required": true,
+      "defaultValue": "",
+      "visibleRule": "auth = basic",
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    }
+  ],
+  "sourceDefinitions": [
+    {
+      "target": "variableGroup",
+      "endpoint": "/$(system.teamProject)/_apis/distributedtask/variablegroups",
+      "selector": "jsonpath:$.value[*].name",
+      "keySelector": "jsonpath:$.value[*].id",
+      "authKey": "tfs:teamfoundation"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js",
+      "argumentFormat": ""
+    }
+  },
+  "messages": {}
+}

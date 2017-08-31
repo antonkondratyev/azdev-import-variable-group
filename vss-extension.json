@@ -1,0 +1,58 @@
+{
+  "manifestVersion": 1,
+  "id": "import-variable-group",
+  "name": "Import Variable Group",
+  "version": "1.0.0",
+  "publisher": "kondratyevanton",
+  "public": true,
+  "description": "Import Variable Group",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "categories": [
+    "Build and release"
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE"
+    }
+  },
+  "icons": {
+    "default": "images/logo.png"
+  },
+  "scopes": [
+    "vso.build"
+  ],
+  "contributions": [
+    {
+      "id": "import-variable-group",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/import-variable-group"
+      }
+    }
+  ],
+  "contributionTypes": [],
+  "files": [
+    {
+      "path": "tasks/import-variable-group/node_modules/"
+    },
+    {
+      "path": "tasks/import-variable-group/icon.png"
+    },
+    {
+      "path": "tasks/import-variable-group/index.js"
+    },
+    {
+      "path": "tasks/import-variable-group/task.json"
+    }
+  ]
+}
